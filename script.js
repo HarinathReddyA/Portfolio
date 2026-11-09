@@ -1,10 +1,52 @@
-const text = (value) => document.createTextNode(value);
+const svgNamespace = "http://www.w3.org/2000/svg";
 
-function addContactLink(parent, label, href) {
-  const link = document.createElement("a");
-  link.href = href;
-  link.append(text(label));
-  parent.append(link);
+const skillIconShapes = {
+  "AI & Machine Learning": [
+    ["path", { d: "M7 32V20m9 12V9m9 23V16m9 16V5M6 14l9-7 9 5 10-8" }],
+    ["circle", { cx: "6", cy: "14", r: "2" }],
+    ["circle", { cx: "15", cy: "7", r: "2" }],
+    ["circle", { cx: "24", cy: "12", r: "2" }],
+    ["circle", { cx: "34", cy: "4", r: "2" }],
+  ],
+  "Generative AI": [
+    ["path", { d: "M20 5v30M5 20h30M9 9l22 22m0-22L9 31" }],
+    ["circle", { cx: "20", cy: "20", r: "5" }],
+    ["circle", { cx: "20", cy: "5", r: "2" }],
+    ["circle", { cx: "35", cy: "20", r: "2" }],
+    ["circle", { cx: "20", cy: "35", r: "2" }],
+    ["circle", { cx: "5", cy: "20", r: "2" }],
+  ],
+  "Cloud & DevOps": [
+    ["path", { d: "M11 30h19a7 7 0 0 0 .4-14A10 10 0 0 0 11 14a8 8 0 0 0 0 16Z" }],
+    ["path", { d: "M15 22h10m-5-5 5 5-5 5" }],
+  ],
+  "Versioning & Delivery": [
+    ["circle", { cx: "10", cy: "9", r: "3" }],
+    ["circle", { cx: "30", cy: "30", r: "3" }],
+    ["circle", { cx: "10", cy: "30", r: "3" }],
+    ["path", { d: "M10 12v15a3 3 0 0 0 3 3h14M10 12a8 8 0 0 0 8 8h4a8 8 0 0 1 8 8" }],
+  ],
+  "Data Engineering": [
+    ["ellipse", { cx: "20", cy: "9", rx: "13", ry: "5" }],
+    ["path", { d: "M7 9v22c0 3 6 5 13 5s13-2 13-5V9M7 20c0 3 6 5 13 5s13-2 13-5" }],
+  ],
+  "Model Training & Inference": [
+    ["rect", { x: "7", y: "6", width: "26", height: "10", rx: "2" }],
+    ["rect", { x: "7", y: "24", width: "26", height: "10", rx: "2" }],
+    ["path", { d: "M12 11h.1M12 29h.1M18 11h10M18 29h10M20 17v6m-3-3 3 3 3-3" }],
+  ],
+};
+
+function createSkillIcon(category) {
+  const icon = document.createElementNS(svgNamespace, "svg");
+  icon.setAttribute("viewBox", "0 0 40 40");
+  icon.setAttribute("aria-hidden", "true");
+  (skillIconShapes[category] || []).forEach(([tagName, attributes]) => {
+    const shape = document.createElementNS(svgNamespace, tagName);
+    Object.entries(attributes).forEach(([name, value]) => shape.setAttribute(name, value));
+    icon.append(shape);
+  });
+  return icon;
 }
 
 function renderPortfolio(data) {
@@ -12,18 +54,8 @@ function renderPortfolio(data) {
   document.getElementById("hero-intro").textContent = data.intro;
   document.getElementById("footer-name").textContent = `${data.name} · ${new Date().getFullYear()}`;
 
-  const contact = document.getElementById("hero-contact");
-  addContactLink(contact, data.contact.email, `mailto:${data.contact.email}`);
-  addContactLink(contact, data.contact.phone, `tel:${data.contact.phone.replace(/[^\d+]/g, "")}`);
-  if (data.contact.linkedin) {
-    addContactLink(contact, "LinkedIn ↗", data.contact.linkedin);
-  }
-  if (data.contact.github) {
-    addContactLink(contact, "GitHub ↗", data.contact.github);
-  }
-
   const projects = document.getElementById("project-grid");
-  data.experience.flatMap((role) => role.projects).slice(0, 6).forEach((project, index) => {
+  data.experience.flatMap((role) => role.projects).slice(0, 6).forEach((project) => {
     const card = document.createElement("article");
     card.className = "project-card";
 
@@ -31,7 +63,7 @@ function renderPortfolio(data) {
     top.className = "project-topline";
     const number = document.createElement("span");
     number.className = "project-number";
-    number.textContent = `PROJECT / ${String(index + 1).padStart(2, "0")}`;
+    number.textContent = "SELECTED WORK";
     const company = document.createElement("span");
     company.className = "project-company";
     company.textContent = project.client || project.company || "";
@@ -76,14 +108,30 @@ function renderPortfolio(data) {
   });
 
   const skills = document.getElementById("skills-grid");
-  Object.entries(data.skills).forEach(([category, items]) => {
+  Object.entries(data.skills).forEach(([category, items], index) => {
     const group = document.createElement("section");
     group.className = "skill-group";
+    group.style.setProperty("--skill-index", index);
+    const top = document.createElement("div");
+    top.className = "skill-group-top";
+    const icon = document.createElement("span");
+    icon.className = "skill-icon";
+    icon.append(createSkillIcon(category));
+    const count = document.createElement("span");
+    count.className = "skill-count";
+    count.textContent = `${String(items.length).padStart(2, "0")} SKILLS`;
+    top.append(icon, count);
     const heading = document.createElement("h3");
     heading.textContent = category;
-    const values = document.createElement("p");
-    values.textContent = items.join(" · ");
-    group.append(heading, values);
+    const values = document.createElement("div");
+    values.className = "skill-tags";
+    items.forEach((skill) => {
+      const tag = document.createElement("span");
+      tag.className = "skill-tag";
+      tag.textContent = skill;
+      values.append(tag);
+    });
+    group.append(top, heading, values);
     skills.append(group);
   });
 
@@ -96,6 +144,36 @@ function renderPortfolio(data) {
     item.textContent = `${publication.title} — ${publication.venue} (${publication.year})`;
     publications.append(item);
   });
+
+  setupScrollAnimations();
+}
+
+function setupScrollAnimations() {
+  if (!("IntersectionObserver" in window)) {
+    return;
+  }
+
+  const targets = document.querySelectorAll(
+    ".hero-copy, .hero-art, .services-section .section-heading, .service-card, .capabilities-heading, .capability-card, .evaluation-section .section-heading, .evaluation-card, .recruiter-fit, .project-card, .experience-item, .skills-section .section-heading, .skill-group, .about-section > *",
+  );
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -36px 0px" },
+  );
+
+  targets.forEach((target, index) => {
+    target.classList.add("reveal-on-scroll");
+    target.style.setProperty("--reveal-delay", `${(index % 5) * 70}ms`);
+    observer.observe(target);
+  });
+  document.body.classList.add("motion-ready");
 }
 
 fetch("data/portfolio.json")

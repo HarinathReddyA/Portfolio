@@ -2,7 +2,7 @@
   "name": "Harinath Reddy Anugula",
   "headline": "AI Engineer",
   "lastUpdated": "2026-02-03",
-  "intro": "I’m an AI engineer building production-ready GenAI, machine learning, and data systems. I turn complex information into practical tools—from agentic copilots to reliable document and video pipelines.",
+  "intro": "Independent AI engineer available for remote freelance engagements and open to relocation. I build enterprise AI on AWS and Azure—from Bedrock AgentCore and agentic copilots to grounded RAG and reliable production systems.",
   "contact": {
     "email": "harinathreddy1385@gmail.com",
     "phone": "+919963016507",
@@ -91,10 +91,10 @@
   ],
   "skills": {
     "AI & Machine Learning": [
-      "Machine learning", "Data analysis", "Data exploration", "Data wrangling", "Data visualization", "Deep learning", "Data science", "spaCy", "Hugging Face", "NLTK", "Transformers", "GPT", "OpenAI", "BERT", "NLP", "Pandas", "NumPy", "scikit-learn", "PyCaret", "PyTorch", "TensorFlow", "Dask", "Ollama", "AWS Bedrock", "AWS AgentCore"
+      "Machine learning", "Model training", "Model evaluation", "Python", "Data analysis", "Data exploration", "Data wrangling", "Data visualization", "Deep learning", "Data science", "spaCy", "Hugging Face", "NLTK", "Transformers", "GPT", "OpenAI", "BERT", "NLP", "Pandas", "NumPy", "scikit-learn", "PyCaret", "PyTorch", "TensorFlow", "Dask", "Ollama", "AWS Bedrock", "AWS AgentCore"
     ],
     "Generative AI": [
-      "Claude", "AWS Bedrock", "FastAPI", "MongoDB", "LangChain", "LangGraph", "MCP", "ChromaDB", "Vector databases", "RAG", "AI agents", "PydanticAI", "Amazon Textract", "OCR tools", "Microsoft Foundry", "Azure OpenAI", "Azure ML", "Cognitive Services"
+      "Claude", "AWS Bedrock", "FastAPI", "MongoDB", "LangChain", "LangGraph", "MCP", "ChromaDB", "Vector databases", "RAG", "Enterprise RAG", "Graph RAG", "RAGAS", "LLM-as-judge", "AI agents", "PydanticAI", "Amazon Textract", "OCR tools", "Microsoft Foundry", "Azure OpenAI", "Azure ML", "Cognitive Services"
     ],
     "Cloud & DevOps": [
       "Terraform", "GCP", "Azure", "AWS", "EKS", "ArgoCD", "Helm", "CI/CD"
@@ -104,6 +104,9 @@
     ],
     "Data Engineering": [
       "Temporal", "Dask", "Apache Airflow", "PySpark"
+    ],
+    "Model Training & Inference": [
+      "Fine-tuning", "Training pipelines", "vLLM", "Model inference", "Model serving", "FastAPI"
     ]
   },
   "education": {
