@@ -18,6 +18,9 @@ function renderPortfolio(data) {
   if (data.contact.linkedin) {
     addContactLink(contact, "LinkedIn ↗", data.contact.linkedin);
   }
+  if (data.contact.github) {
+    addContactLink(contact, "GitHub ↗", data.contact.github);
+  }
 
   const projects = document.getElementById("project-grid");
   data.experience.flatMap((role) => role.projects).slice(0, 6).forEach((project, index) => {
@@ -107,6 +110,6 @@ fetch("data/portfolio.json")
     console.error("Portfolio content failed to load:", error);
     const notice = document.createElement("p");
     notice.className = "noscript-message";
-    notice.textContent = "Portfolio content could not be loaded. Please try again later.";
+    notice.textContent = `Portfolio content could not be loaded (${error.message}). Check that data/portfolio.json is included in the published GitHub Pages files.`;
     document.body.append(notice);
   });
