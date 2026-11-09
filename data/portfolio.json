@@ -89,6 +89,22 @@
       ]
     }
   ],
+  "remoteProjects": [
+    {
+      "name": "ProjSite — Multilingual Shipment Booking",
+      "client": "Independent project",
+      "remote": true,
+      "summary": "Designed a multi-agent shipment-booking system for Swedish- and English-speaking users. Built workflows to process long, multilingual custom invoices and deployed the application on Vercel.",
+      "technologies": ["Multi-agent AI", "Swedish & English", "Custom invoice processing", "Vercel"]
+    },
+    {
+      "name": "Acxelin Agentix — 3D Design MCP Server",
+      "client": "Independent project",
+      "remote": true,
+      "summary": "Built an MCP server and tools that let AI agents work with 3D model design workflows. Integrated GraphQL APIs and Amazon Bedrock AgentCore Identity to authenticate agent access to connected services.",
+      "technologies": ["MCP server", "3D design tools", "GraphQL APIs", "AgentCore Identity"]
+    }
+  ],
   "skills": {
     "AI & Machine Learning": [
       "Machine learning", "Model training", "Model evaluation", "Python", "Data analysis", "Data exploration", "Data wrangling", "Data visualization", "Deep learning", "Data science", "spaCy", "Hugging Face", "NLTK", "Transformers", "GPT", "OpenAI", "BERT", "NLP", "Pandas", "NumPy", "scikit-learn", "PyCaret", "PyTorch", "TensorFlow", "Dask", "Ollama", "AWS Bedrock", "AWS AgentCore"

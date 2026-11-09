@@ -55,15 +55,15 @@ function renderPortfolio(data) {
   document.getElementById("footer-name").textContent = `${data.name} · ${new Date().getFullYear()}`;
 
   const projects = document.getElementById("project-grid");
-  data.experience.flatMap((role) => role.projects).slice(0, 6).forEach((project) => {
+  [...data.remoteProjects, ...data.experience.flatMap((role) => role.projects)].slice(0, 6).forEach((project) => {
     const card = document.createElement("article");
-    card.className = "project-card";
+    card.className = project.remote ? "project-card remote-project" : "project-card";
 
     const top = document.createElement("div");
     top.className = "project-topline";
     const number = document.createElement("span");
     number.className = "project-number";
-    number.textContent = "SELECTED WORK";
+    number.textContent = project.remote ? "REMOTE PROJECT" : "SELECTED WORK";
     const company = document.createElement("span");
     company.className = "project-company";
     company.textContent = project.client || project.company || "";
