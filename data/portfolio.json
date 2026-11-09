@@ -1,1 +1,128 @@
-
+{
+  "name": "Harinath Reddy Anugula",
+  "headline": "AI Engineer",
+  "lastUpdated": "2026-02-03",
+  "intro": "I’m an AI engineer building production-ready GenAI, machine learning, and data systems. I turn complex information into practical tools—from agentic copilots to reliable document and video pipelines.",
+  "contact": {
+    "email": "harinathreddy1385@gmail.com",
+    "phone": "+919963016507",
+    "linkedinHandle": "harinathreddya",
+    "linkedin": "https://www.linkedin.com/in/harinathreddya/"
+  },
+  "experience": [
+    {
+      "company": "Deloitte USI",
+      "title": "Data and AI Engineer II",
+      "dates": "Sep 2024 – Present",
+      "summary": "Leads enterprise Generative AI delivery with Azure OpenAI, Azure ML, Cognitive Services, scalable RAG pipelines, and LangChain/LangGraph agentic architectures. Built and optimized ChromaDB embedding and semantic retrieval pipelines to improve response accuracy and reduce hallucinations in production.",
+      "projects": [
+        {
+          "name": "Underwriter Ally — Bond & Surety AI Copilot",
+          "client": "Deloitte USI",
+          "summary": "Built a Graph RAG copilot that helps underwriters draft coverage and answer submission questions across about 300 strategy guides, quick references, and exclusions. Piloted with up to 50 underwriters; evaluated against about 100 golden-set conversations and the prior plain-RAG chatbot, with underwriter feedback. A multi-agent system combines memory, planning, LangGraph/MCP tool orchestration, and Neo4j knowledge graphs, reaching 85–90% accuracy on complex underwriting queries.",
+          "technologies": ["Graph RAG", "LangGraph", "MCP", "Neo4j", "LLM evaluation"],
+          "outcomes": ["About 300 reference documents", "Pilot with up to 50 underwriters", "85–90% query accuracy"]
+        },
+        {
+          "name": "AI-Based Clause Review Engine",
+          "client": "Deloitte USI",
+          "summary": "Shipped a production document-review pipeline processing 100–200 insurance slips per day (about eight pages each) to identify clauses and flag typos or missing words against original wording. Orchestrated document processing, per-page clause identification using three sequential LLM calls, and clause comparison with Temporal. Added Kibana and Dynatrace dashboards and alerts for processing errors and failed calls, plus CI/CD for deployment.",
+          "technologies": ["Temporal", "AWS Textract", "LLMs", "EKS", "Terraform", "ArgoCD", "Helm", "Kibana", "Dynatrace", "GitHub Actions"]
+        },
+        {
+          "name": "A/B Testing Framework for AI Agents",
+          "client": "Deloitte USI",
+          "summary": "Built an Amazon Bedrock AgentCore Gateway experimentation layer for testing prompt and agent changes in development. Routes new prompts to selected users or a percentage of requests without redeploying agents; provisioned reproducible gateway and routing configuration as Terraform infrastructure-as-code for enterprise deployment.",
+          "technologies": ["Amazon Bedrock AgentCore Gateway", "AWS", "Terraform"]
+        },
+        {
+          "name": "STTM — Informatica Source-to-Target Mapper",
+          "client": "Deloitte USI",
+          "summary": "Engineered an MCP-based agentic system that generates source-to-target data lineage from Informatica XML mappings. Turns complex ETL logic into structured, interpretable lineage steps and supports scalable processing of large enterprise XML mapping files.",
+          "technologies": ["MCP", "AI agents", "Informatica XML", "Data lineage"]
+        }
+      ]
+    },
+    {
+      "company": "Veltris Technologies",
+      "title": "AI Engineer",
+      "dates": "Aug 2021 – Sep 2024",
+      "summary": "Implemented end-to-end MLOps pipelines, including CI/CD, Docker-based containerization, and scalable cloud deployment for AI systems.",
+      "projects": [
+        {
+          "name": "NLP-Based Invoice Evaluation System",
+          "client": "Kaufman Dolowich",
+          "summary": "Built and integrated an NLP system to evaluate and classify attorneys’ daily work entries. Trained a custom named-entity-recognition model to extract task entities from free text and developed fuzzy matching to distinguish billable from non-billable activities, improving task identification and automating invoice evaluation.",
+          "technologies": ["NLP", "Named entity recognition", "Fuzzy matching"]
+        },
+        {
+          "name": "Risk Quantification for Project Tenders",
+          "client": "Hitachi Energy",
+          "summary": "Built PySpark and Databricks pipelines, orchestrated with Azure Data Factory, to transform raw data into gold-standard datasets. Developed Random Forest, XGBoost, and Decision Tree models for risk prediction and probabilistic modeling, achieving 80–88% accuracy in identifying high-risk tenders. End-to-end preprocessing, feature engineering, training, and evaluation reduced manual risk analysis effort by 35%.",
+          "technologies": ["PySpark", "Databricks", "Azure Data Factory", "Random Forest", "XGBoost"],
+          "outcomes": ["80–88% high-risk tender accuracy", "35% less manual risk analysis"]
+        },
+        {
+          "name": "AI Assistant for Videos",
+          "client": "Veltris",
+          "summary": "Developed a multimodal assistant using LLaVA-13B to process text, images, and video, produce concise video summaries, and answer contextual questions. Managed ChromaDB vector databases for semantic search and RAG, and deployed scalable Flask API endpoints on AWS.",
+          "technologies": ["LLaVA-13B", "Hugging Face", "ChromaDB", "Flask", "AWS"]
+        },
+        {
+          "name": "Shop-Floor Safety Surveillance",
+          "client": "Juniper",
+          "summary": "Designed a real-time manufacturing safety monitoring system. Trained custom YOLOv8 object detection to check helmets, gloves, jackets, and other required gear; built facial recognition to identify workers without required equipment; integrated live video streams for continuous detection and violation alerts.",
+          "technologies": ["Ultralytics", "OpenCV", "YOLOv8", "Computer vision"]
+        },
+        {
+          "name": "LLM for Customer Support",
+          "client": "Electronics domain",
+          "summary": "Fine-tuned FALCON 7B, 13B, and 40B models for electronics customer support. Built a RAG pipeline for relevant, factual responses, FastAPI serving endpoints, and CosmosDB-backed domain knowledge retrieval. Optimized training and inference on NVIDIA A100 GPUs.",
+          "technologies": ["FALCON 7B/13B/40B", "Hugging Face", "FastAPI", "CosmosDB", "AWS", "NVIDIA A100"]
+        },
+        {
+          "name": "Video Anonymization Pipeline",
+          "client": "Hexagon",
+          "summary": "Engineered an Airflow workflow to anonymize video: segmented videos into frames, detected and blurred faces, reconstructed anonymized output videos, and stored them in AWS S3. Containerized components with Docker Compose and orchestrated them through Airflow DAGs; AWS Redshift was also part of the project stack.",
+          "technologies": ["Apache Airflow", "Docker Compose", "AWS S3", "AWS Redshift", "Computer vision"]
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "AI & Machine Learning": [
+      "Machine learning", "Data analysis", "Data exploration", "Data wrangling", "Data visualization", "Deep learning", "Data science", "spaCy", "Hugging Face", "NLTK", "Transformers", "GPT", "OpenAI", "BERT", "NLP", "Pandas", "NumPy", "scikit-learn", "PyCaret", "PyTorch", "TensorFlow", "Dask", "Ollama", "AWS Bedrock", "AWS AgentCore"
+    ],
+    "Generative AI": [
+      "Claude", "AWS Bedrock", "FastAPI", "MongoDB", "LangChain", "LangGraph", "MCP", "ChromaDB", "Vector databases", "RAG", "AI agents", "PydanticAI", "Amazon Textract", "OCR tools", "Microsoft Foundry", "Azure OpenAI", "Azure ML", "Cognitive Services"
+    ],
+    "Cloud & DevOps": [
+      "Terraform", "GCP", "Azure", "AWS", "EKS", "ArgoCD", "Helm", "CI/CD"
+    ],
+    "Versioning & Delivery": [
+      "Git", "GitHub", "Liquibase", "DVC"
+    ],
+    "Data Engineering": [
+      "Temporal", "Dask", "Apache Airflow", "PySpark"
+    ]
+  },
+  "education": {
+    "institution": "Lovely Professional University",
+    "location": "Jalandhar",
+    "degree": "Bachelor of Technology — Computer Science Engineering",
+    "dates": "Jul 2017 – Apr 2021",
+    "cgpa": "7.98"
+  },
+  "publications": [
+    {
+      "title": "An Overview on Plant Disease Detection Algorithm Using Deep Learning",
+      "venue": "2021 2nd International Conference on Intelligent Engineering and Management (ICIEM)",
+      "year": 2021
+    },
+    {
+      "title": "Jowar Plant Leaf Disease Detection Using Deep Learning",
+      "venue": "2021 9th International Conference on Reliability, Infocom Technologies and Optimization",
+      "year": 2021
+    }
+  ]
+}
